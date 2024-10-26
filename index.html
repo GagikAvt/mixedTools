@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Գործիքներ</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#password-generator">Գաղտնաբառերի գեներատոր</a></li>
+                    <li><a href="#random-number-generator">Պատահական թվերի գեներատոր</a></li>
+                    <li><a href="#currency-converter">Արտարժույթի փոխակերպիչ</a></li>
+                    <li><a href="#timer">Ժամաչափ</a></li>
+                    <li><a href="#notepad">Բլոկնոտ</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <section id="password-generator">
+                <h2>Գաղտնաբառերի գեներատոր</h2>
+                <div class="settings">
+                    <label for="length">Գաղտնաբառի երկարություն:</label>
+                    <input type="number" id="length" min="4" max="20" value="8">
+                    
+                    <label for="uppercase"><input type="checkbox" id="uppercase" checked>Ներառել մեծատառ</label>
+                    <label for="numbers"><input type="checkbox" id="numbers" checked>Ներառել թվեր</label>
+                    <label for="specialChars"><input type="checkbox" id="specialChars" checked>Ներառել հատուկ նշաններ</label>
+                </div>
+                <button id="generate-password">Ստեղծել գաղտնաբառ</button>
+                <textarea id="password" readonly></textarea>
+            </section>
+            <section id="random-number-generator">
+                <h2>Պատահական թվերի գեներատոր</h2>
+                <div>
+                    <label for="minInput">Նվազագույն արժեքը:</label>
+                    <input type="number" id="minInput" placeholder="Մուտքագրեք նվազագույնը">
+                </div>
+                <div>
+                    <label for="maxInput">Առավելագույն արժեքը:</label>
+                    <input type="number" id="maxInput" placeholder="Մուտքագրեք առավելագույնը">
+                </div>
+                <button onclick="generateRandomNumber()">Ստեղծել թիվ</button>
+                <div id="result"></div>
+            </section>
+            <section id="currency-converter">
+                <h2>Արտարժույթի փոխակերպիչ</h2>
+                <form id="converterForm">
+                    <label for="amount">Գումար:</label>
+                    <input type="number" id="amount" required>
+                
+                    <label for="fromCurrency">Արժույթից:</label>
+                    <select id="fromCurrency" required></select>
+                
+                    <label for="toCurrency">Արժույթով:</label>
+                    <select id="toCurrency" required></select>
+                
+                    <button type="submit">Փոխակերպել</button>
+                </form>
+                <div id="result_converter"></div>
+            </section>
+            <section id="timer">
+                <h2>Ժամաչափ</h2>
+                <div id="timer-display">00:00:00:000</div>
+                <button id="start-timer">Սկսել</button>
+                <button id="pause-timer">Դադար</button>
+                <button id="stop-timer">Վերականգնել</button>
+                <button id="save-timer">Պահպանել</button>
+                <div id="saved-times-list">Ժամաչափի պատմություն:</div> 
+            </section>
+            <section id="notepad">
+                <h2>Բլոկնոտ</h2>
+                <div id="notes-container">
+                    <button id="create-note">Ստեղծեք նոր նշում</button>
+                    <div id="_notes-container"></div>
+                </div>
+            
+                <div id="note-modal" class="modal">
+                    <div class="modal-content">
+                        <input type="text" id="note-title-input" placeholder="Գրառման վերնագիրը" />
+                        <textarea id="note-text"></textarea>
+                        <button id="save-note">Պահպանել</button>
+                        <button id="delete-note">Ջնջել</button>
+                        <button id="cancel-note">Չեղարկել</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
